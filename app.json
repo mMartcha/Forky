@@ -9,14 +9,18 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.forky.app",
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/ForkyLogo.jpeg",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.forky.app",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "bundler": "metro",
@@ -26,6 +30,16 @@
     "plugins": [
       "expo-router",
       [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ],
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
+      [
         "expo-splash-screen",
         {
           "image": "./assets/images/ForkyLogo.jpeg",
@@ -33,10 +47,18 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-build-properties"
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "24cb1fec-9a53-43ea-9fd9-f7a170685261"
+      }
+    },
+    "owner": "marcellodev"
   }
 }

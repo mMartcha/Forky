@@ -2,12 +2,15 @@ import CategoryPressable from "@/components/CategoryPressable";
 import ForkyHeader from "@/components/ForkyHeader";
 import RecipeCard from "@/components/RecipeCard";
 import { ForkyContext } from "@/context/ForkyContext";
+import auth from "@react-native-firebase/auth";
 import { useContext, useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import { styles } from "./styles";
 
 export default function Recipes() {
     const { recipes } = useContext(ForkyContext);
+
+    const user = auth().currentUser;
 
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
@@ -59,3 +62,12 @@ export default function Recipes() {
         </View>
     );
 }
+
+// const user = auth().currentUser;
+
+//     return(
+//         <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
+//             <Text>Welcome {user?.email}</Text>
+//             <Button title="Logout" onPress={() => auth().signOut()} />
+//         </View>
+//     )
