@@ -117,9 +117,7 @@ export default function App() {
                     <View style={styles.actionView}>
                         <Text style={{fontWeight:'bold', fontSize:20}}>Ações</Text>
 
-                        <ActionPressable
-                            message="Adicionar aos Favoritos"
-                        />
+                     
                         <ActionPressable
                             message="Editar Receita"
                             onPress={() => router.push({
